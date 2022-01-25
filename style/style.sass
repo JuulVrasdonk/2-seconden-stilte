@@ -1,0 +1,109 @@
+// ******** Fonts ******** //
+@font-face 
+    font-family: Butler
+    src: url(../Font/Butler_Regular.otf)
+    font-weight: normal
+
+
+// ******** VARIABLES ******** //
+
+$heading: clamp(80px, 14vw, 160px)
+$subheading: clamp(40px, 7.14vw, 72px)
+$textheading: clamp(18px, 4.21vw, 36px)
+$text: clamp(14px, 2.5vw, 18px)
+$extra: clamp(10px, 1.79vw, 16px)
+$navtext: clamp(14px, 2.5vw, 16px)
+
+@mixin heading-style
+    font-family: Butler
+    background-image: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.57) 100%)
+    background-size: 100%
+    -webkit-background-clip: text
+    -moz-background-clip: text
+    -webkit-text-fill-color: transparent
+    -moz-text-fill-color: transparent
+    mix-blend-mode: difference
+    text-decoration: none 
+    
+@mixin text-style
+    color: #ffffff
+    mix-blend-mode: difference
+    text-decoration: none 
+    
+// ******** FUNDAMENS ******** //
+
+h1
+    font-size: $heading
+    @include heading-style
+    font-weight: normal
+
+h2
+    font-size: $subheading
+    @include heading-style
+    font-weight: normal
+
+p
+    @include text-style
+    font-family: Helvetica, Arial, sans-serif
+
+
+
+// ******** STYLING ******** //
+
+*, *::before, *::after
+    margin: 0
+    padding: 0
+    scroll-behavior: smooth
+
+.background
+    position: fixed
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+    z-index: -1
+    background-image: url("/img/Background.png")
+    background-size: cover
+
+header
+    display: flex
+    flex-direction: column
+    align-items: center
+    height: 100vh
+    position: relative
+
+nav 
+    width: 100vw
+    max-width: 1750px
+    position: fixed
+    top: 0
+    z-index: 1000
+    ul
+        display: flex
+        list-style-type: none
+        width: 100%
+        justify-content: space-evenly
+        padding-top: 30px 
+
+        a
+            @include text-style
+            font-family: Helvetica, Arial, sans-serif
+            opacity: 0.7
+
+        a.active
+            opacity: 1
+
+header > h2
+    margin-top: 300px
+
+header > strong
+    font-size: $textheading
+    @include heading-style
+    opacity: .5
+
+header > span
+    @include text-style
+    font-family: Helvetica, Arial, sans-serif
+    opacity: 0.7
+    position: absolute
+    bottom: 20px
