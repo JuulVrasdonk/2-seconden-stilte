@@ -98,6 +98,10 @@ p, a, li {
   font-size: clamp(14px, 2.5vw, 16px);
 }
 
+p {
+  max-width: 500px;
+}
+
 ul {
   list-style-type: none;
 }
@@ -339,6 +343,7 @@ main section h2 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 50%;
 }
 
 #touchscreens > div div p {
