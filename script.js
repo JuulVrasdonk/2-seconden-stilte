@@ -42,7 +42,6 @@ videos.forEach((video) => {
     trigger: video,
     start: 'top center-=5%',
     end: 'center top',
-
     onEnter: () => video.play(),
     onEnterBack: () => video.play(),
     onLeave: () => video.pause(),
