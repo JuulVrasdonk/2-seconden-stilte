@@ -33,10 +33,6 @@ headerTl.from("header > h2", {
   scale: .9,
   y: 30
 })
-
-
-
-
 // ********* Play video when in viewport ********* //
 
 let videos = document.querySelectorAll(".vid")
@@ -46,10 +42,11 @@ videos.forEach((video) => {
     trigger: video,
     start: 'top center-=5%',
     end: 'center top',
+
     onEnter: () => video.play(),
     onEnterBack: () => video.play(),
     onLeave: () => video.pause(),
-    onLeaveBack: () => video.pause()
+    onLeaveBack: () => video.pause(),
   });
   
 });
