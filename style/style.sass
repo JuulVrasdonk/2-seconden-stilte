@@ -9,10 +9,9 @@
 
 $heading: clamp(80px, 14vw, 160px)
 $subheading: clamp(40px, 7.14vw, 72px)
-$textheading: clamp(18px, 4.21vw, 36px)
-$text: clamp(14px, 2.5vw, 18px)
+$textheading: clamp(18px, 3.21vw, 32px)
+$text: clamp(14px, 2.5vw, 16px)
 $extra: clamp(10px, 1.79vw, 16px)
-$navtext: clamp(14px, 2.5vw, 16px)
 
 @mixin heading-style
     font-family: Butler
@@ -30,7 +29,39 @@ $navtext: clamp(14px, 2.5vw, 16px)
     mix-blend-mode: difference
     text-decoration: none 
     
-// ******** FUNDAMENS ******** //
+// ******** FUNDAMENTS ******** //
+
+body
+    background-color: #080707 
+    overflow-x: hidden
+
+*, *::before, *::after
+    margin: 0
+    padding: 0
+    scroll-behavior: smooth
+
+*::-webkit-scrollbar 
+  display: block
+  width: 8px
+
+
+*::-webkit-scrollbar-button 
+  display: none
+
+
+*::-webkit-scrollbar-track 
+  background-color: #00000000
+
+
+*::-webkit-scrollbar-track-piece 
+  background-color: #00000000
+
+
+*::-webkit-scrollbar-thumb 
+  background-color: #353535
+
+*::-webkit-scrollbar-thumb:hover
+  background-color: #555555
 
 h1
     font-size: $heading
@@ -42,27 +73,37 @@ h2
     @include heading-style
     font-weight: normal
 
-p
+h3
+    font-size: $textheading
+    @include heading-style
+    font-weight: normal
+
+h4
+    font-size: $text
+    font-family: Helvetica, Arial, sans-serif
+    color: white
+
+p, a, li
     @include text-style
     font-family: Helvetica, Arial, sans-serif
+    font-size: $text
 
+ul 
+    list-style-type: none
 
 
 // ******** STYLING ******** //
 
-*, *::before, *::after
-    margin: 0
-    padding: 0
-    scroll-behavior: smooth
+// ******** HEADER ******** //
 
 .background
     position: fixed
     top: 0
-    bottom: 0
-    right: 0
     left: 0
+    bottom: 0
+    width: 100vw
     z-index: -1
-    background-image: url("/img/Background.png")
+    background-image: url("/assets/Background.png")
     background-size: cover
 
 header
@@ -72,6 +113,19 @@ header
     height: 100vh
     position: relative
 
+header::before 
+  content: ""
+  background: rgb(7, 7, 7)
+  background: linear-gradient(0deg, rgba(33, 21, 15, 0) 0%, rgba(33, 21, 15, 1) 100%)
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  height: 200px
+  width: 100%
+  z-index: 999
+
 nav 
     width: 100vw
     max-width: 1750px
@@ -80,7 +134,6 @@ nav
     z-index: 1000
     ul
         display: flex
-        list-style-type: none
         width: 100%
         justify-content: space-evenly
         padding-top: 30px 
@@ -89,9 +142,6 @@ nav
             @include text-style
             font-family: Helvetica, Arial, sans-serif
             opacity: 0.7
-
-        a.active
-            opacity: 1
 
 header > h2
     margin-top: 300px
@@ -107,3 +157,200 @@ header > span
     opacity: 0.7
     position: absolute
     bottom: 20px
+
+
+// ******** MAIN ******** //
+
+main section 
+    padding: 165px 153px 0 153px
+    box-sizing: border-box
+    width: 100%
+
+    h2
+        margin-bottom: 32px
+
+#designChallenge > p:first-of-type
+    width: 40%
+    margin-bottom: 98px
+
+#designChallenge h3 
+    margin-bottom: 32px 
+
+#designChallenge > div
+    display: flex
+    width: 100%
+
+    div 
+        width: 50%
+
+        p
+            width: 85%
+        
+        p:first-of-type
+            margin-bottom: 30px
+
+    img
+        width: 350px
+        margin-left: 10%
+
+#groteScherm > div:first-of-type
+    display: flex
+    justify-content: space-between
+
+    img
+        width: 49%
+
+
+#groteScherm > p
+    width: 50%
+    font-size: clamp(14px, 2.5vw, 18px)
+    margin: 200px 0
+
+
+#groteScherm div:nth-of-type(2)
+    display: flex
+    video
+        width: 67.7%
+        margin-right: 2%
+
+    ul
+        transform: translateY(10px)
+    p
+        font-size: $text
+        margin-bottom: 20px
+        line-height: 120%
+
+    .calculation
+        opacity: .7
+        line-height: 160%
+        margin: 30px 0
+
+#touchscreens ul
+    display: flex
+    width: 100%
+    flex-wrap: wrap
+
+    li 
+        width: 24%
+
+        img
+            width: 100%
+
+    li:nth-of-type(odd)
+        margin-right: 1%
+
+    li:nth-of-type(2), li:nth-of-type(6)
+        margin-right: 1%
+
+    li:nth-of-type(1), li:nth-of-type(2), li:nth-of-type(3), li:nth-of-type(4)
+        margin-bottom: 1%
+
+#touchscreens > div
+    display: flex
+    margin: 200px 0
+
+    video
+        width: 50%
+
+    div
+        display: flex
+        flex-direction: column
+        justify-content: center
+
+        p 
+            margin-left: 20%
+            margin-right: 10%
+        
+        a
+            margin-left: 20%
+            margin-top: 10px
+            color: white
+            opacity: .7
+            text-decoration: none
+
+            svg
+                transform: translateY(2px)
+                height: 15px
+                margin-left: 5px
+                transition: 1s
+                transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000)
+
+        a:hover > svg
+            transform: translateX(20px)
+            transition: 1s
+            transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000)
+
+#touchscreens h4
+    margin-bottom: 10px
+    font-weight: normal
+
+#touchscreens iframe
+    width: 100%
+    height: 90vh
+
+#verhalen div
+    display: flex
+
+    img, video
+        width: 50%
+    
+    img
+        margin-bottom: 32px
+
+    p
+        margin: auto
+        margin-left: 10%
+
+#interactie div
+    display: flex
+
+    img
+        margin-bottom: 32px
+        width: 50%
+
+    p
+        margin: auto
+        margin-left: 10%
+
+#linkjes ul
+    display: flex
+    flex-wrap: wrap
+
+    li
+        margin-right: 25%
+
+    li:first-of-type
+        margin-bottom: 32px
+
+
+
+// ******** FOOTER ******** //
+
+footer 
+    margin-top: 165px
+    
+    ul
+        display: flex
+        justify-content: space-between
+        width: 90vw
+        max-width: 1750px
+        margin: 0 auto
+        align-items: flex-end
+        margin-bottom: 30px
+
+        li:nth-of-type(2) a
+            display: flex
+            flex-direction: column
+            align-items: center
+
+            svg
+                height: 1.7em
+                margin-bottom: 10px
+                transition: 1s
+                transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000)
+        
+        li:nth-of-type(2) a:hover > svg
+            transform: translateY(-10px)
+            transition: 1s
+            transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000)
+
